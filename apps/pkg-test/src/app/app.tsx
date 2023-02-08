@@ -1,14 +1,10 @@
-import { MuiTest } from '@jvla/mui-test';
 import { ContextTest, useContextTest } from '@jvla/context-test';
 
 export function App() {
   return (
-    <>
-      <MuiTest>This is a Wibble!</MuiTest>
-      <ContextTest>
-        <ConnectedComponent />
-      </ContextTest>
-    </>
+    <ContextTest>
+      <ConnectedComponent />
+    </ContextTest>
   );
 }
 

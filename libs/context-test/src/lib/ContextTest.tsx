@@ -1,4 +1,5 @@
 import React from 'react';
+import { MuiTest } from '@jvla/mui-test';
 export interface ContextTestProps {
   children?: React.ReactNode;
 }
@@ -39,7 +40,7 @@ export const ContextTest = (props: ContextTestProps) => {
   const value = useContextProviderTest();
   return (
     <ContextTestContext.Provider value={value}>
-      <div>{props.children}</div>
+      <MuiTest>{props.children}</MuiTest>
     </ContextTestContext.Provider>
   );
 };
