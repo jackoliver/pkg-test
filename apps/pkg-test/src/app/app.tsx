@@ -1,16 +1,8 @@
-import styled from '@emotion/styled';
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import { MuiTest } from '@jvla/mui-test';
+import { Box } from '@mui/material';
 
 export function App() {
-  return (
-    <StyledApp>
-      <NxWelcome title="pkg-test" />
-    </StyledApp>
-  );
+  return <MuiTest>This is a Wibble!</MuiTest>;
 }
 
 export default App;
