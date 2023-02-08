@@ -39,6 +39,17 @@
         "jestConfig": "libs/context-test/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npm publish dist/libs/context-test --access=public"
+          }
+        ],
+        "parallel": false
+      }
     }
   }
 }

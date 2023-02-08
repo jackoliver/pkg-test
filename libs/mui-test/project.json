@@ -39,6 +39,17 @@
         "jestConfig": "libs/mui-test/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npm publish dist/libs/mui-test --access=public"
+          }
+        ],
+        "parallel": false
+      }
     }
   }
 }
