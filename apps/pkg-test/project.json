@@ -1,0 +1,81 @@
+{
+  "name": "pkg-test",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/pkg-test/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/pkg-test",
+        "index": "apps/pkg-test/src/index.html",
+        "baseHref": "/",
+        "main": "apps/pkg-test/src/main.tsx",
+        "polyfills": "apps/pkg-test/src/polyfills.ts",
+        "tsConfig": "apps/pkg-test/tsconfig.app.json",
+        "assets": ["apps/pkg-test/src/favicon.ico", "apps/pkg-test/src/assets"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/pkg-test/src/environments/environment.ts",
+              "with": "apps/pkg-test/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "pkg-test:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "pkg-test:build:development"
+        },
+        "production": {
+          "buildTarget": "pkg-test:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/pkg-test/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/pkg-test"],
+      "options": {
+        "jestConfig": "apps/pkg-test/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
