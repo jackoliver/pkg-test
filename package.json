@@ -9,7 +9,7 @@
     "build:libs": "nx run-many --target=build --projects=mui-test,pkg-test",
     "publish:libs": "nx run-many --target=publish --projects=mui-test,pkg-test"
   },
-  "private": true,
+
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
