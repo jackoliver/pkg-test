@@ -1,0 +1,7 @@
+{
+  "name": "corinnekrych-package-b",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "corinnekrych-package-a": "*"
+  }
+}
